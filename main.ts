@@ -1,13 +1,13 @@
 radio.onReceivedValue(function (display_command_name, display_command_value) {
     if (display_command_name.charAt(0) == "x" && display_command_name.charAt(2) == "y") {
-        ix = parseFloat(display_command_name.charAt(0))
-        iy = parseFloat(display_command_name.charAt(2))
+        ix2 = parseFloat(display_command_name.charAt(0))
+        iy2 = parseFloat(display_command_name.charAt(2))
         if (display_command_value != 0) {
-            if (led.pointBrightness(ix, iy) != display_command_value) {
-                led.plotBrightness(ix, iy, display_command_value)
+            if (led.pointBrightness(ix2, iy2) != display_command_value) {
+                led.plotBrightness(ix2, iy2, display_command_value)
             }
-        } else if (led.point(ix, iy)) {
-            led.unplot(ix, iy)
+        } else if (led.point(ix2, iy2)) {
+            led.unplot(ix2, iy2)
         }
     } else if (display_command_name == "num") {
         basic.showNumber(display_command_value)
@@ -33,6 +33,6 @@ radio.onReceivedString(function (display_photo) {
 })
 let list_tmp = ""
 let display_list: number[] = []
-let iy = 0
-let ix = 0
+let iy2 = 0
+let ix2 = 0
 radio.setGroup(1)
