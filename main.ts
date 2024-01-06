@@ -1,7 +1,7 @@
 radio.onReceivedValue(function (display_command_name, display_command_value) {
-    if (display_command_name.substr(0, 1) == "xy") {
+    if (display_command_name.charAt(0) == "x" && display_command_name.charAt(2) == "y") {
         ix = parseFloat(display_command_name.charAt(0))
-        iy = parseFloat(display_command_name.charAt(1))
+        iy = parseFloat(display_command_name.charAt(2))
         if (display_command_value != 0) {
             if (led.pointBrightness(ix, iy) != display_command_value) {
                 led.plotBrightness(ix, iy, display_command_value)
@@ -11,14 +11,6 @@ radio.onReceivedValue(function (display_command_name, display_command_value) {
         }
     } else if (display_command_name == "num") {
         basic.showNumber(display_command_value)
-    }
-})
-radio.onReceivedNumber(function (game_score) {
-    if (game_score == -1) {
-        display_killer = 0
-    } else {
-        score = game_score
-        display_killer = 1
     }
 })
 radio.onReceivedString(function (display_photo) {
@@ -41,8 +33,6 @@ radio.onReceivedString(function (display_photo) {
 })
 let list_tmp = ""
 let display_list: number[] = []
-let score = 0
-let display_killer = 0
 let iy = 0
 let ix = 0
 radio.setGroup(1)
