@@ -35,4 +35,5 @@ let list_tmp = ""
 let display_list: number[] = []
 let iy2 = 0
 let ix2 = 0
+basic.showNumber(0)
 radio.setGroup(1)
